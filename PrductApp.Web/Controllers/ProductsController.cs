@@ -23,15 +23,22 @@ namespace ProductApp.Web.Controllers
             var products = await _repository.GetAll();
             if (!string.IsNullOrEmpty(searchString))
             {
-                //TODO: Implement
+                //5.There is a search filter in the products page. Implement the functionality in the controller.
+                //Added code for search filter
+                products = products.Where(s => s.Name.ToUpper().Contains(searchString.ToUpper()));
             }
 
             switch (sortOrder)
             {
-                //TODO: Implement
+                //4 -Sorting is implemented in products page UI for both name and price. Implement it in the controller also.
+                //Added code for price sorting
+                case "Price": 
+                    products = products.OrderBy(s => s.Price);
+                    break;
                 default:
                     products = products.OrderBy(s => s.Name);
                     break;
+
             }
             return View(products);
         }

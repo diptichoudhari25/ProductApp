@@ -163,10 +163,10 @@ namespace ProductApp.Web.Test
             _mockRepository.Setup(x => x.GetById(productId)).ReturnsAsync(product);
 
             var result = await _productsController.Edit(productId);
-
-            var redirect = Assert.IsType<OkResult>(result);
-
-            Assert.Equal<int>(200, redirect.StatusCode);
+            //2- There is a failing unit test. There is no problem with the functionality but the test is wrong.Correct it.
+            //Added changes in unit test case
+            var redirect = Assert.IsType<NotFoundResult>(result);
+            Assert.Equal<int>(404, redirect.StatusCode);
         }
 
         [Theory]

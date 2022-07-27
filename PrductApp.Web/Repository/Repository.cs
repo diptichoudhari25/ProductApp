@@ -47,6 +47,9 @@ namespace ProductApp.Web.Repository
             product.Name = entity.Name;
             product.Price = entity.Price;
             product.Stock = entity.Stock;
+            //1 -Edit for product color is not working.Implement it.
+            //added color column to update color in ProductApp
+            product.Color = entity.Color;
         }
     }
 }
